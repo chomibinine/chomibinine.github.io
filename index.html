@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>초미비니네집(공사중)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <style>
+    :root{
+      --cb-bg:#0f1221; --cb-card:#151935; --cb-text:#eef1ff; --cb-sub:#b8c0ff;
+      --cb-accent-pink:#ff6ea6; --cb-accent-blue:#5dd0ff; --cb-accent-lime:#b6ff5d;
+      --cb-muted:#8187a7; --cb-border:#232849; --cb-shadow:0 10px 25px rgba(0,0,0,.25);
+      --cb-radius:18px; --cb-maxw:1100px;
+      --cb-nav-h:56px;            /* 모바일 상단 고정바 높이 */
+      --cb-tap:44px;              /* 손가락 탭 타겟 최소 높이 */
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{margin:0;background:var(--cb-bg);color:var(--cb-text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Pretendard,Apple SD Gothic Neo,Malgun Gothic,sans-serif}
+
+    .cb-container{max-width:var(--cb-maxw);margin:0 auto;padding:0 20px}
+
+    /* ===== Hero ===== */
+    .cb-hero{
+      background:
+        radial-gradient(60rem 60rem at 10% -10%, rgba(93,208,255,.25), transparent 60%),
+        radial-gradient(60rem 60rem at 90% 10%, rgba(255,110,166,.25), transparent 60%),
+        linear-gradient(180deg, #0b0e1b 0%, #0f1221 100%);
+      text-align:center; padding:84px 0 64px; position:relative; overflow:hidden;
+    }
+    .cb-hero__badge{display:inline-block;background:linear-gradient(90deg,var(--cb-accent-pink),var(--cb-accent-blue));color:#0b0e1b;font-weight:700;padding:6px 12px;border-radius:999px;margin-bottom:14px}
+    .cb-hero__title{font-size:clamp(28px, 7vw, 42px);line-height:1.15;margin:0 0 8px}
+    .cb-hero__subtitle{color:var(--cb-sub);font-size:clamp(14px, 4.2vw, 18px);margin:0 0 22px}
+    .cb-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:18px 0 8px}
+    .cb-btn{display:inline-block;min-height:var(--cb-tap);padding:12px 18px;border-radius:12px;background:var(--cb-accent-blue);color:#05121c;font-weight:800;text-decoration:none;box-shadow:var(--cb-shadow);transform:translateY(0);transition:.2s ease}
+    .cb-btn:hover{transform:translateY(-2px)}
+    .cb-btn--secondary{background:var(--cb-accent-pink)}
+    .cb-btn--ghost{background:#ffffff14;color:var(--cb-text);border:1px solid #ffffff26}
+    .cb-quote{margin-top:26px;color:var(--cb-muted);font-weight:500;font-size:15px}
+
+    /* ===== Nav ===== */
+    .cb-nav{position:sticky;top:0;z-index:30;background:#0f1221e6;backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid var(--cb-border)}
+    .cb-nav__wrap{display:flex;gap:18px;align-items:center;padding:10px 0;flex-wrap:wrap}
+    .cb-nav__item{color:var(--cb-sub);text-decoration:none;font-weight:600;padding:8px 6px;border-radius:8px;min-height:var(--cb-tap);display:flex;align-items:center}
+    .cb-nav__item:hover{color:#fff}
+
+    /* ===== Sections & Grid ===== */
+    .cb-section{background:var(--cb-bg);padding:56px 0;border-top:1px solid var(--cb-border);scroll-margin-top:calc(var(--cb-nav-h) + 12px)}
+    .cb-section--alt{background:linear-gradient(180deg,#0f1221 0%, #0f1326 100%)}
+    .cb-section__title{font-size:clamp(20px, 5.4vw, 26px);margin:0 0 6px}
+    .cb-section__desc{color:var(--cb-muted);margin:0 0 20px}
+
+    .cb-grid{display:grid;gap:16px;grid-template-columns:repeat(12,1fr)}
+    .cb-card{grid-column:span 12;background:var(--cb-card);border:1px solid var(--cb-border);border-radius:var(--cb-radius);padding:16px;box-shadow:var(--cb-shadow);display:flex;flex-direction:column;gap:10px}
+    .cb-card__emoji{font-size:28px}
+    .cb-card__title{margin:0;font-size:18px}
+    .cb-card__text{margin:0;color:var(--cb-muted);line-height:1.6}
+    .cb-card__link{align-self:flex-start;text-decoration:none;font-weight:700;color:var(--cb-accent-lime);padding:6px 0}
+    .cb-tagwrap{display:flex;gap:8px;flex-wrap:wrap}
+    .cb-tag{font-size:12px;padding:4px 8px;border-radius:999px;border:1px solid #ffffff22;color:#d7dcff}
+
+    /* ===== Story ===== */
+    .cb-story{display:grid;gap:12px;grid-template-columns:repeat(12,1fr)}
+    .cb-story__item{grid-column:span 12;display:flex;gap:12px;align-items:center;text-decoration:none;background:var(--cb-card);border:1px solid var(--cb-border);border-radius:14px;padding:12px}
+    .cb-story__item:hover{background:#171c3d}
+    .cb-story__thumb{font-size:22px}
+    .cb-story__title{color:#fff;font-weight:700}
+
+    /* ===== Contact ===== */
+    .cb-contact{display:flex;gap:12px;flex-wrap:wrap}
+    .cb-contact__btn{background:var(--cb-accent-pink);color:#05121c;text-decoration:none;font-weight:800;padding:12px 16px;border-radius:12px;min-height:var(--cb-tap);display:inline-flex;align-items:center}
+    .cb-contact__btn--line{background:transparent;border:1px solid #ffffff3a;color:#fff}
+
+    /* ===== Footer ===== */
+    .cb-footer{background:#0d1020;color:#d7dcff;border-top:1px solid var(--cb-border);padding:20px 0}
+    .cb-footer__wrap{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+    .cb-footer__links a{color:var(--cb-sub);text-decoration:none;margin-left:12px;padding:8px 4px;border-radius:8px;min-height:var(--cb-tap);display:inline-flex;align-items:center}
+    .cb-footer__links a:hover{color:#fff}
+
+    /* === Responsive === */
+    @media (max-width:480px){
+      :root{
+        /* 가시성 강화(모바일 소형) */
+        --cb-text:#ffffff;
+        --cb-sub:#eef1ff;
+        --cb-muted:#d4d9ff;
+        --cb-card:#14193a;
+        --cb-border:#303867;
+        --cb-accent-lime:#d9ff6b;
+        --cb-nav-h:60px;
+      }
+      .cb-hero{padding:64px 0 44px}
+      .cb-section{padding:42px 0}
+      .cb-card{padding:18px;gap:12px;border-width:1.2px;box-shadow:0 8px 26px rgba(0,0,0,.35)}
+      .cb-card__title{font-size:clamp(18px, 5.6vw, 22px);font-weight:800}
+      .cb-card__text{font-size:clamp(15.5px, 4.8vw, 18px);line-height:1.75;color:var(--cb-sub)}
+      .cb-card__link{color:var(--cb-accent-lime);text-decoration:underline;text-underline-offset:2px;font-weight:800;padding:8px 0}
+      .cb-tag{font-size:13px;padding:5px 10px}
+      .cb-tagwrap{gap:10px}
+      .cb-nav__wrap{gap:12px;padding:12px 0}
+      .cb-nav__item{font-size:15.5px;padding:8px 6px;min-height:48px}
+      .cb-btn{font-size:16px;min-height:48px;padding:13px 18px}
+      .cb-section{scroll-margin-top:calc(var(--cb-nav-h) + 12px)}
+      .cb-hero__title, .cb-hero__subtitle{ text-shadow:0 1px 0 rgba(0,0,0,.25), 0 4px 18px rgba(0,0,0,.35) }
+      .cb-hero__badge{ box-shadow:0 6px 16px rgba(0,0,0,.35) }
+    }
+    @media (max-width:360px){
+      .cb-nav__item{font-size:14.5px;padding:8px 4px}
+      .cb-card__title{font-size:clamp(18px, 6vw, 20px)}
+      .cb-card__text{font-size:clamp(15px, 4.8vw, 17px)}
+      .cb-btn{font-size:15.5px}
+    }
+    @media (min-width:640px){
+      .cb-card{grid-column:span 6}
+      .cb-story__item{grid-column:span 6}
+    }
+    @media (min-width:960px){
+      .cb-card{grid-column:span 3}
+      .cb-story__item{grid-column:span 4}
+      .cb-hero__title{font-size:52px}
+      .cb-hero__subtitle{font-size:20px}
+    }
+    @media (prefers-reduced-motion: reduce){
+      .cb-btn{transition:none}
+    }
+
+    /* === 안전영역 & 접근성 === */
+    @supports (padding: max(0px)) {
+      .cb-container{
+        padding-left:  max(20px, env(safe-area-inset-left));
+        padding-right: max(20px, env(safe-area-inset-right));
+      }
+    }
+    html, body { overflow-x: hidden; }
+    :focus-visible { outline: 2px solid var(--cb-accent-blue); outline-offset: 2px; }
+    a, button { -webkit-tap-highlight-color: rgba(255,255,255,0.14); }
+    @media (prefers-contrast: more){
+      .cb-card__text{ color:#ffffff; }
+      .cb-card{ border-color:#3d4690; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================
+    초미비니네집(공사중) - 통합 메인(프로젝트+전자책)
+  ========================== -->
+  <section class="cb-hero" aria-label="초미비니네집(공사중) 메인">
+    <div class="cb-container">
+      <div class="cb-hero__badge">Official</div>
+      <h1 class="cb-hero__title">초미비니네집(공사중)</h1>
+      <p class="cb-hero__subtitle">게임처럼 배우는 영어 · 퀴즈 · 카드배틀 · 스토리</p>
+
+      <div class="cb-cta">
+        <a class="cb-btn" href="https://play.google.com/store/search?q=%EC%B4%88%EB%AF%B8%EB%B9%84%EB%8B%88&c=apps" aria-label="플레이스토어 바로가기" target="_blank" rel="noopener">🎮 앱 보러가기</a>
+        <a class="cb-btn cb-btn--secondary" href="#cb-ebooks" aria-label="전자책 바로가기">📚 전자책</a>
+        <a class="cb-btn cb-btn--ghost" href="#cb-projects" aria-label="프로젝트 보기">🧪 프로젝트</a>
+      </div>
+
+      <div class="cb-quote" id="cb-quote" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <nav class="cb-nav" aria-label="주요 메뉴">
+    <div class="cb-container cb-nav__wrap">
+      <a href="/" class="cb-nav__item">홈</a>
+      <a href="#cb-projects" class="cb-nav__item">프로젝트</a>
+      <a href="#cb-ebooks" class="cb-nav__item">전자책</a>
+      <a href="#cb-story" class="cb-nav__item">스토리</a>
+      <a href="#cb-contact" class="cb-nav__item">연락하기</a>
+    </div>
+  </nav>
+
+  <!-- 프로젝트 -->
+  <section id="cb-projects" class="cb-section" aria-label="프로젝트">
+    <div class="cb-container">
+      <h2 class="cb-section__title">프로젝트</h2>
+      <p class="cb-section__desc">초미(누나)와 비니(남동생)가 만드는 학습형 놀이터</p>
+
+      <div class="cb-grid">
+        <!-- 카드 1: 사자성어 쪼개기 -->
+        <article class="cb-card">
+          <div class="cb-card__emoji" aria-hidden="true">🀄</div>
+          <h3 class="cb-card__title">사자성어 쪼개기</h3>
+          <p class="cb-card__text">짧은 라운드로 즐기는 사자성어 퀴즈. 레벨/콤보/효과음 지원.</p>
+          <a href="https://play.google.com/store/apps/details?id=com.chomibinine.sajaquizwebview" class="cb-card__link" target="_blank" rel="noopener">플레이스토어</a>
+          <div class="cb-tagwrap"><span class="cb-tag">퀴즈</span><span class="cb-tag">모바일최적화</span></div>
+        </article>
+
+        <!-- 카드 2: 중학 영단어 쪼개기 -->
+        <article class="cb-card">
+          <div class="cb-card__emoji" aria-hidden="true">📚</div>
+          <h3 class="cb-card__title">중학 영단어 쪼개기</h3>
+          <p class="cb-card__text">어원·발음연상·스토리로 외우는 단어앱. 완료표시/진행도 저장.</p>
+          <a href="https://play.google.com/store/apps/details?id=com.chomibini.wordsquizm" class="cb-card__link" target="_blank" rel="noopener">플레이스토어</a>
+          <div class="cb-tagwrap"><span class="cb-tag">어휘</span><span class="cb-tag">스토리학습</span></div>
+        </article>
+
+        <!-- 카드 3: 고등 영단어 쪼개기 (예정) -->
+        <article class="cb-card">
+          <div class="cb-card__emoji" aria-hidden="true">📘</div>
+          <h3 class="cb-card__title">고등 영단어 쪼개기 (예정)</h3>
+          <p class="cb-card__text">내신·수능 필수 단어를 초미비니 스타일로 정리한 앱, 곧 출시 예정!</p>
+          <span class="cb-card__link">준비 중</span>
+          <div class="cb-tagwrap"><span class="cb-tag">고등</span><span class="cb-tag">예정</span></div>
+        </article>
+
+        <!-- 카드 4: 삼국지 카드 배틀 (예정) -->
+        <article class="cb-card">
+          <div class="cb-card__emoji" aria-hidden="true">⚔️</div>
+          <h3 class="cb-card__title">삼국지 카드 배틀 (예정)</h3>
+          <p class="cb-card__text">능력치·상성·특수카드! 전투 묘사까지 살아있는 턴제 카드게임.</p>
+          <span class="cb-card__link">준비 중</span>
+          <div class="cb-tagwrap"><span class="cb-tag">게임</span><span class="cb-tag">예정</span></div>
+        </article>
+
+        <!-- 카드 5: 한국사 퀴즈 (예정) -->
+        <article class="cb-card">
+          <div class="cb-card__emoji" aria-hidden="true">🏺</div>
+          <h3 class="cb-card__title">한국사 퀴즈 (예정)</h3>
+          <p class="cb-card__text">시대순 기본 500 · 심화 500 구성. 난이도 커브에 맞춘 복습 루프.</p>
+          <span class="cb-card__link">준비 중</span>
+          <div class="cb-tagwrap"><span class="cb-tag">학습</span><span class="cb-tag">예정</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 전자책(교보) -->
+  <section id="cb-ebooks" class="cb-section" aria-label="전자책">
+    <div class="cb-container">
+      <h2 class="cb-section__title">전자책 (E-Book)</h2>
+      <p class="cb-section__desc">교보문고에서 초미비니 전자책을 만나보세요!</p>
+
+      <div class="cb-grid">
+        <article class="cb-card">
+          <div class="cb-card__emoji" aria-hidden="true">📖</div>
+          <h3 class="cb-card__title">초미비니의 중학 영단어 쪼개기</h3>
+          <p class="cb-card__text">어원·발음연상·스토리 기반의 중학용 영단어 학습서.</p>
+          <a href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/480D250828610?LINK=NVE" target="_blank" rel="noopener" class="cb-card__link">교보문고에서 보기</a>
+          <div class="cb-tagwrap"><span class="cb-tag">중등</span><span class="cb-tag">영단어</span></div>
+        </article>
+
+        <article class="cb-card">
+          <div class="cb-card__emoji" aria-hidden="true">📘</div>
+          <h3 class="cb-card__title">초미비니의 사자성어 노트</h3>
+          <p class="cb-card__text">스토리와 퀴즈로 배우는 사자성어 학습 노트.</p>
+          <a href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/480D250410770?LINK=NVE" target="_blank" rel="noopener" class="cb-card__link">교보문고에서 보기</a>
+          <div class="cb-tagwrap"><span class="cb-tag">사자성어</span><span class="cb-tag">학습</span></div>
+        </article>
+
+        <article class="cb-card">
+          <div class="cb-card__emoji" aria-hidden="true">📙</div>
+          <h3 class="cb-card__title">초미비니의 비밀과외 노트 : 문학 개념편</h3>
+          <p class="cb-card__text">문학 개념을 감 잡기 쉽게 정리한 핵심 과외 노트.</p>
+          <a href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/480N250325010?LINK=NVE" target="_blank" rel="noopener" class="cb-card__link">교보문고에서 보기</a>
+          <div class="cb-tagwrap"><span class="cb-tag">문학개념</span><span class="cb-tag">학습</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 스토리 (블로그 링크 제거, 내부 앵커) -->
+  <section id="cb-story" class="cb-section cb-section--alt" aria-label="초미비니 스토리">
+    <div class="cb-container">
+      <h2 class="cb-section__title">초미비니 스토리</h2>
+      <p class="cb-section__desc">단어가 살아 움직이는 에피소드! 짧은 만화/애니 방식으로 업데이트</p>
+      <div class="cb-story">
+        <a class="cb-story__item" href="#cb-story" aria-label="스토리 보기">
+          <span class="cb-story__thumb" aria-hidden="true">🎬</span>
+          <span class="cb-story__title">#01 시작! 단어탐험 (준비 중)</span>
+        </a>
+        <a class="cb-story__item" href="#cb-story" aria-label="스토리 보기">
+          <span class="cb-story__thumb" aria-hidden="true">🎭</span>
+          <span class="cb-story__title">#02 발음연상의 비밀 (준비 중)</span>
+        </a>
+        <a class="cb-story__item" href="#cb-story" aria-label="스토리 보기">
+          <span class="cb-story__thumb" aria-hidden="true">📖</span>
+          <span class="cb-story__title">#03 어원으로 꿰뚫기 (준비 중)</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 연락 -->
+  <section id="cb-contact" class="cb-section" aria-label="연락하기">
+    <div class="cb-container">
+      <h2 class="cb-section__title">연락하기</h2>
+      <div class="cb-contact">
+        <a class="cb-contact__btn" href="mailto:chomibinine@gmail.com">📮 이메일 보내기</a>
+        <a class="cb-contact__btn cb-contact__btn--line" href="/guestbook">💬 방명록 남기기</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="cb-footer" aria-label="푸터">
+    <div class="cb-container cb-footer__wrap">
+      <div class="cb-footer__brand">© <span id="cb-year"></span> 초미비니네집(공사중)</div>
+      <div class="cb-footer__links">
+        <a href="#cb-projects">프로젝트</a>
+        <a href="#cb-ebooks">전자책</a>
+        <a href="#cb-contact">문의</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 현재 연도 표기
+    document.getElementById('cb-year').textContent = new Date().getFullYear();
+
+    // 랜덤 메시지
+    const quotes = [
+      "오늘도 한 칸 전진! ✅","발음연상 → 이미지상상 → 예문! 세트로 가자 🎯","완료표시 체크는 작은 승리의 깃발 🏳️",
+      "어원은 핵심만! 쪼개고 합쳐 뜻을 잡자 🔍","게임처럼 배우면 공부도 재밌다 🎮","한 문제씩, 꾸준히가 최강 루트 🚶‍♀️",
+      "스토리로 기억하면 오래 간다 📖","콤보는 실수해도 다시 연결된다 🔗","오늘의 나는 어제의 나보다 1업 ⬆️","시작이 반! 지금 클릭이 반! ⚡"
+    ];
+    const q = document.getElementById('cb-quote'); if(q){ q.textContent = quotes[Math.floor(Math.random()*quotes.length)]; }
+  </script>
+</body>
+</html>
