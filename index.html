@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="dark">
 
-  <!-- AdSense Auto Ads: 퍼블리셔 ID는 스크린샷의 값으로 설정됨 -->
+  <!-- AdSense Auto Ads: GitHub Pages 검수/노출용 -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3456746641264931" crossorigin="anonymous"></script>
 
   <style>
@@ -112,8 +112,6 @@
       .cb-hero__subtitle{font-size:20px}
     }
     @media (prefers-reduced-motion: reduce){ .cb-btn{transition:none} }
-
-    /* Safe area & a11y */
     @supports (padding: max(0px)) {
       .cb-container{
         padding-left:  max(20px, env(safe-area-inset-left));
@@ -123,7 +121,6 @@
     html, body { overflow-x: hidden; }
     :focus-visible { outline: 2px solid var(--cb-accent-blue); outline-offset: 2px; }
     a, button { -webkit-tap-highlight-color: rgba(255,255,255,0.14); }
-    @media (prefers-contrast: more){ .cb-card__text{color:#fff} .cb-card{border-color:#3d4690} }
   </style>
 </head>
 <body>
@@ -245,18 +242,9 @@
       <h2 class="cb-section__title">초미비니 스토리</h2>
       <p class="cb-section__desc">단어가 살아 움직이는 에피소드! 짧은 만화/애니 방식으로 업데이트</p>
       <div class="cb-story">
-        <a class="cb-story__item" href="#cb-story">
-          <span class="cb-story__thumb" aria-hidden="true">🎬</span>
-          <span class="cb-story__title">#01 시작! 단어탐험 (준비 중)</span>
-        </a>
-        <a class="cb-story__item" href="#cb-story">
-          <span class="cb-story__thumb" aria-hidden="true">🎭</span>
-          <span class="cb-story__title">#02 발음연상의 비밀 (준비 중)</span>
-        </a>
-        <a class="cb-story__item" href="#cb-story">
-          <span class="cb-story__thumb" aria-hidden="true">📖</span>
-          <span class="cb-story__title">#03 어원으로 꿰뚫기 (준비 중)</span>
-        </a>
+        <a class="cb-story__item" href="#cb-story"><span class="cb-story__thumb" aria-hidden="true">🎬</span><span class="cb-story__title">#01 시작! 단어탐험 (준비 중)</span></a>
+        <a class="cb-story__item" href="#cb-story"><span class="cb-story__thumb" aria-hidden="true">🎭</span><span class="cb-story__title">#02 발음연상의 비밀 (준비 중)</span></a>
+        <a class="cb-story__item" href="#cb-story"><span class="cb-story__thumb" aria-hidden="true">📖</span><span class="cb-story__title">#03 어원으로 꿰뚫기 (준비 중)</span></a>
       </div>
     </div>
   </section>
@@ -285,16 +273,15 @@
   </footer>
 
   <script>
-    // 현재 연도 표기
     document.getElementById('cb-year').textContent = new Date().getFullYear();
-
-    // 랜덤 메시지
-    const quotes = [
-      "오늘도 한 칸 전진! ✅","발음연상 → 이미지상상 → 예문! 세트로 가자 🎯","완료표시 체크는 작은 승리의 깃발 🏳️",
-      "어원은 핵심만! 쪼개고 합쳐 뜻을 잡자 🔍","게임처럼 배우면 공부도 재밌다 🎮","한 문제씩, 꾸준히가 최강 루트 🚶‍♀️",
-      "스토리로 기억하면 오래 간다 📖","콤보는 실수해도 다시 연결된다 🔗","오늘의 나는 어제의 나보다 1업 ⬆️","시작이 반! 지금 클릭이 반! ⚡"
+    const quotes=[
+      "오늘도 한 칸 전진! ✅","발음연상 → 이미지상상 → 예문! 세트로 가자 🎯",
+      "완료표시 체크는 작은 승리의 깃발 🏳️","어원은 핵심만! 쪼개고 합쳐 뜻을 잡자 🔍",
+      "게임처럼 배우면 공부도 재밌다 🎮","한 문제씩, 꾸준히가 최강 루트 🚶‍♀️",
+      "스토리로 기억하면 오래 간다 📖","콤보는 실수해도 다시 연결된다 🔗",
+      "오늘의 나는 어제의 나보다 1업 ⬆️","시작이 반! 지금 클릭이 반! ⚡"
     ];
-    const q = document.getElementById('cb-quote'); if(q){ q.textContent = quotes[Math.floor(Math.random()*quotes.length)]; }
+    const q=document.getElementById('cb-quote'); if(q){ q.textContent=quotes[Math.floor(Math.random()*quotes.length)]; }
   </script>
 </body>
 </html>
