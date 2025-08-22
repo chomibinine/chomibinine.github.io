@@ -6,25 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="dark">
 
-  <!-- ===== Google AdSense Auto Ads (이미 스킨에 있다면 이 줄은 제거하세요) =====
-       발급받은 본인 퍼블리셔 ID로 client 값을 교체: ca-pub-XXXXXXXXXXXXXXXX -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <!-- AdSense Auto Ads: 퍼블리셔 ID는 스크린샷의 값으로 설정됨 -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3456746641264931" crossorigin="anonymous"></script>
 
   <style>
     :root{
       --cb-bg:#0f1221; --cb-card:#151935; --cb-text:#eef1ff; --cb-sub:#b8c0ff;
       --cb-accent-pink:#ff6ea6; --cb-accent-blue:#5dd0ff; --cb-accent-lime:#b6ff5d;
       --cb-muted:#8187a7; --cb-border:#232849; --cb-shadow:0 10px 25px rgba(0,0,0,.25);
-      --cb-radius:18px; --cb-maxw:1100px;
-      --cb-nav-h:56px; --cb-tap:44px;
+      --cb-radius:18px; --cb-maxw:1100px; --cb-nav-h:56px; --cb-tap:44px;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
     body{margin:0;background:var(--cb-bg);color:var(--cb-text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Pretendard,Apple SD Gothic Neo,Malgun Gothic,sans-serif}
-
     .cb-container{max-width:var(--cb-maxw);margin:0 auto;padding:0 20px}
 
-    /* ===== Hero ===== */
+    /* Hero */
     .cb-hero{
       background:
         radial-gradient(60rem 60rem at 10% -10%, rgba(93,208,255,.25), transparent 60%),
@@ -42,18 +39,17 @@
     .cb-btn--ghost{background:#ffffff14;color:var(--cb-text);border:1px solid #ffffff26}
     .cb-quote{margin-top:26px;color:var(--cb-muted);font-weight:500;font-size:15px}
 
-    /* ===== Nav ===== */
+    /* Nav */
     .cb-nav{position:sticky;top:0;z-index:30;background:#0f1221e6;backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid var(--cb-border)}
     .cb-nav__wrap{display:flex;gap:18px;align-items:center;padding:10px 0;flex-wrap:wrap}
     .cb-nav__item{color:var(--cb-sub);text-decoration:none;font-weight:600;padding:8px 6px;border-radius:8px;min-height:var(--cb-tap);display:flex;align-items:center}
     .cb-nav__item:hover{color:#fff}
 
-    /* ===== Sections & Grid ===== */
+    /* Sections & Grid */
     .cb-section{background:var(--cb-bg);padding:56px 0;border-top:1px solid var(--cb-border);scroll-margin-top:calc(var(--cb-nav-h) + 12px)}
     .cb-section--alt{background:linear-gradient(180deg,#0f1221 0%, #0f1326 100%)}
     .cb-section__title{font-size:clamp(20px, 5.4vw, 26px);margin:0 0 6px}
     .cb-section__desc{color:var(--cb-muted);margin:0 0 20px}
-
     .cb-grid{display:grid;gap:16px;grid-template-columns:repeat(12,1fr)}
     .cb-card{grid-column:span 12;background:var(--cb-card);border:1px solid var(--cb-border);border-radius:var(--cb-radius);padding:16px;box-shadow:var(--cb-shadow);display:flex;flex-direction:column;gap:10px}
     .cb-card__emoji{font-size:28px}
@@ -63,36 +59,27 @@
     .cb-tagwrap{display:flex;gap:8px;flex-wrap:wrap}
     .cb-tag{font-size:12px;padding:4px 8px;border-radius:999px;border:1px solid #ffffff22;color:#d7dcff}
 
-    /* ===== Inline Ad block ===== */
-    .cb-ad{padding:10px 0;margin:0}
-    .cb-ad .adwrap{max-width:100%;display:block;text-align:center}
-    .cb-ad .adwrap ins{display:block;margin:0 auto}
-
-    /* ===== Story ===== */
+    /* Story */
     .cb-story{display:grid;gap:12px;grid-template-columns:repeat(12,1fr)}
     .cb-story__item{grid-column:span 12;display:flex;gap:12px;align-items:center;text-decoration:none;background:var(--cb-card);border:1px solid var(--cb-border);border-radius:14px;padding:12px}
     .cb-story__item:hover{background:#171c3d}
     .cb-story__thumb{font-size:22px}
     .cb-story__title{color:#fff;font-weight:700}
 
-    /* ===== Contact ===== */
+    /* Contact */
     .cb-contact{display:flex;gap:12px;flex-wrap:wrap}
     .cb-contact__btn{background:var(--cb-accent-pink);color:#05121c;text-decoration:none;font-weight:800;padding:12px 16px;border-radius:12px;min-height:var(--cb-tap);display:inline-flex;align-items:center}
     .cb-contact__btn--line{background:transparent;border:1px solid #ffffff3a;color:#fff}
 
-    /* ===== Footer ===== */
+    /* Footer */
     .cb-footer{background:#0d1020;color:#d7dcff;border-top:1px solid var(--cb-border);padding:20px 0}
     .cb-footer__wrap{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
     .cb-footer__links a{color:var(--cb-sub);text-decoration:none;margin-left:12px;padding:8px 4px;border-radius:8px;min-height:var(--cb-tap);display:inline-flex;align-items:center}
     .cb-footer__links a:hover{color:#fff}
 
-    /* === Responsive === */
+    /* Responsive */
     @media (max-width:480px){
-      :root{
-        --cb-text:#ffffff; --cb-sub:#eef1ff; --cb-muted:#d4d9ff;
-        --cb-card:#14193a; --cb-border:#303867; --cb-accent-lime:#d9ff6b;
-        --cb-nav-h:60px;
-      }
+      :root{ --cb-text:#fff; --cb-sub:#eef1ff; --cb-muted:#d4d9ff; --cb-card:#14193a; --cb-border:#303867; --cb-accent-lime:#d9ff6b; --cb-nav-h:60px; }
       .cb-hero{padding:64px 0 44px}
       .cb-section{padding:42px 0}
       .cb-card{padding:18px;gap:12px;border-width:1.2px;box-shadow:0 8px 26px rgba(0,0,0,.35)}
@@ -107,7 +94,6 @@
       .cb-section{scroll-margin-top:calc(var(--cb-nav-h) + 12px)}
       .cb-hero__title, .cb-hero__subtitle{ text-shadow:0 1px 0 rgba(0,0,0,.25), 0 4px 18px rgba(0,0,0,.35) }
       .cb-hero__badge{ box-shadow:0 6px 16px rgba(0,0,0,.35) }
-      .cb-ad{ padding:6px 0; }
     }
     @media (max-width:360px){
       .cb-nav__item{font-size:14.5px;padding:8px 4px}
@@ -125,11 +111,9 @@
       .cb-hero__title{font-size:52px}
       .cb-hero__subtitle{font-size:20px}
     }
-    @media (prefers-reduced-motion: reduce){
-      .cb-btn{transition:none}
-    }
+    @media (prefers-reduced-motion: reduce){ .cb-btn{transition:none} }
 
-    /* === 안전영역 & 접근성 === */
+    /* Safe area & a11y */
     @supports (padding: max(0px)) {
       .cb-container{
         padding-left:  max(20px, env(safe-area-inset-left));
@@ -139,17 +123,12 @@
     html, body { overflow-x: hidden; }
     :focus-visible { outline: 2px solid var(--cb-accent-blue); outline-offset: 2px; }
     a, button { -webkit-tap-highlight-color: rgba(255,255,255,0.14); }
-    @media (prefers-contrast: more){
-      .cb-card__text{ color:#ffffff; }
-      .cb-card{ border-color:#3d4690; }
-    }
+    @media (prefers-contrast: more){ .cb-card__text{color:#fff} .cb-card{border-color:#3d4690} }
   </style>
 </head>
 <body>
 
-  <!-- =========================
-    초미비니네집(공사중) - 메인
-  ========================== -->
+  <!-- Hero -->
   <section class="cb-hero" aria-label="초미비니네집(공사중) 메인">
     <div class="cb-container">
       <div class="cb-hero__badge">Official</div>
@@ -157,26 +136,12 @@
       <p class="cb-hero__subtitle">게임처럼 배우는 영어 · 퀴즈 · 카드배틀 · 스토리</p>
 
       <div class="cb-cta">
-        <a class="cb-btn" href="https://play.google.com/store/search?q=%EC%B4%88%EB%AF%B8%EB%B9%84%EB%8B%88&c=apps" aria-label="플레이스토어 바로가기" target="_blank" rel="noopener">🎮 앱 보러가기</a>
-        <a class="cb-btn cb-btn--secondary" href="#cb-ebooks" aria-label="전자책 바로가기">📚 전자책</a>
-        <a class="cb-btn cb-btn--ghost" href="#cb-projects" aria-label="프로젝트 보기">🧪 프로젝트</a>
+        <a class="cb-btn" href="https://play.google.com/store/search?q=%EC%B4%88%EB%AF%B8%EB%B9%84%EB%8B%88&c=apps" target="_blank" rel="noopener">🎮 앱 보러가기</a>
+        <a class="cb-btn cb-btn--secondary" href="#cb-ebooks">📚 전자책</a>
+        <a class="cb-btn cb-btn--ghost" href="#cb-projects">🧪 프로젝트</a>
       </div>
 
       <div class="cb-quote" id="cb-quote" aria-live="polite"></div>
-    </div>
-  </section>
-
-  <!-- [선택] 광고: 히어로 아래 인피드/반응형 -->
-  <section class="cb-ad" aria-label="스폰서 링크">
-    <div class="cb-container adwrap">
-      <!-- 본인 값으로 교체: data-ad-client, data-ad-slot -->
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-           data-ad-slot="YYYYYYYYYY"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
   </section>
 
@@ -240,20 +205,7 @@
     </div>
   </section>
 
-  <!-- [선택] 광고: 프로젝트 섹션 하단 -->
-  <section class="cb-ad" aria-label="스폰서 링크">
-    <div class="cb-container adwrap">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-           data-ad-slot="ZZZZZZZZZZ"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-  </section>
-
-  <!-- 전자책(교보) -->
+  <!-- 전자책 -->
   <section id="cb-ebooks" class="cb-section" aria-label="전자책">
     <div class="cb-container">
       <h2 class="cb-section__title">전자책 (E-Book)</h2>
@@ -293,15 +245,15 @@
       <h2 class="cb-section__title">초미비니 스토리</h2>
       <p class="cb-section__desc">단어가 살아 움직이는 에피소드! 짧은 만화/애니 방식으로 업데이트</p>
       <div class="cb-story">
-        <a class="cb-story__item" href="#cb-story" aria-label="스토리 보기">
+        <a class="cb-story__item" href="#cb-story">
           <span class="cb-story__thumb" aria-hidden="true">🎬</span>
           <span class="cb-story__title">#01 시작! 단어탐험 (준비 중)</span>
         </a>
-        <a class="cb-story__item" href="#cb-story" aria-label="스토리 보기">
+        <a class="cb-story__item" href="#cb-story">
           <span class="cb-story__thumb" aria-hidden="true">🎭</span>
           <span class="cb-story__title">#02 발음연상의 비밀 (준비 중)</span>
         </a>
-        <a class="cb-story__item" href="#cb-story" aria-label="스토리 보기">
+        <a class="cb-story__item" href="#cb-story">
           <span class="cb-story__thumb" aria-hidden="true">📖</span>
           <span class="cb-story__title">#03 어원으로 꿰뚫기 (준비 중)</span>
         </a>
@@ -315,7 +267,8 @@
       <h2 class="cb-section__title">연락하기</h2>
       <div class="cb-contact">
         <a class="cb-contact__btn" href="mailto:chomibinine@gmail.com">📮 이메일 보내기</a>
-        <a class="cb-contact__btn cb-contact__btn--line" href="/guestbook">💬 방명록 남기기</a>
+        <!-- GitHub Pages에는 방명록이 없으니 티스토리 방명록으로 연결 -->
+        <a class="cb-contact__btn cb-contact__btn--line" href="https://chominezip.tistory.com/guestbook">💬 방명록 남기기</a>
       </div>
     </div>
   </section>
