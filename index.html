@@ -5,14 +5,18 @@
   <title>초미비니네집(공사중)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="dark">
+
+  <!-- ===== Google AdSense Auto Ads (이미 스킨에 있다면 이 줄은 제거하세요) =====
+       발급받은 본인 퍼블리셔 ID로 client 값을 교체: ca-pub-XXXXXXXXXXXXXXXX -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
   <style>
     :root{
       --cb-bg:#0f1221; --cb-card:#151935; --cb-text:#eef1ff; --cb-sub:#b8c0ff;
       --cb-accent-pink:#ff6ea6; --cb-accent-blue:#5dd0ff; --cb-accent-lime:#b6ff5d;
       --cb-muted:#8187a7; --cb-border:#232849; --cb-shadow:0 10px 25px rgba(0,0,0,.25);
       --cb-radius:18px; --cb-maxw:1100px;
-      --cb-nav-h:56px;            /* 모바일 상단 고정바 높이 */
-      --cb-tap:44px;              /* 손가락 탭 타겟 최소 높이 */
+      --cb-nav-h:56px; --cb-tap:44px;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -59,6 +63,11 @@
     .cb-tagwrap{display:flex;gap:8px;flex-wrap:wrap}
     .cb-tag{font-size:12px;padding:4px 8px;border-radius:999px;border:1px solid #ffffff22;color:#d7dcff}
 
+    /* ===== Inline Ad block ===== */
+    .cb-ad{padding:10px 0;margin:0}
+    .cb-ad .adwrap{max-width:100%;display:block;text-align:center}
+    .cb-ad .adwrap ins{display:block;margin:0 auto}
+
     /* ===== Story ===== */
     .cb-story{display:grid;gap:12px;grid-template-columns:repeat(12,1fr)}
     .cb-story__item{grid-column:span 12;display:flex;gap:12px;align-items:center;text-decoration:none;background:var(--cb-card);border:1px solid var(--cb-border);border-radius:14px;padding:12px}
@@ -80,13 +89,8 @@
     /* === Responsive === */
     @media (max-width:480px){
       :root{
-        /* 가시성 강화(모바일 소형) */
-        --cb-text:#ffffff;
-        --cb-sub:#eef1ff;
-        --cb-muted:#d4d9ff;
-        --cb-card:#14193a;
-        --cb-border:#303867;
-        --cb-accent-lime:#d9ff6b;
+        --cb-text:#ffffff; --cb-sub:#eef1ff; --cb-muted:#d4d9ff;
+        --cb-card:#14193a; --cb-border:#303867; --cb-accent-lime:#d9ff6b;
         --cb-nav-h:60px;
       }
       .cb-hero{padding:64px 0 44px}
@@ -103,6 +107,7 @@
       .cb-section{scroll-margin-top:calc(var(--cb-nav-h) + 12px)}
       .cb-hero__title, .cb-hero__subtitle{ text-shadow:0 1px 0 rgba(0,0,0,.25), 0 4px 18px rgba(0,0,0,.35) }
       .cb-hero__badge{ box-shadow:0 6px 16px rgba(0,0,0,.35) }
+      .cb-ad{ padding:6px 0; }
     }
     @media (max-width:360px){
       .cb-nav__item{font-size:14.5px;padding:8px 4px}
@@ -143,7 +148,7 @@
 <body>
 
   <!-- =========================
-    초미비니네집(공사중) - 통합 메인(프로젝트+전자책)
+    초미비니네집(공사중) - 메인
   ========================== -->
   <section class="cb-hero" aria-label="초미비니네집(공사중) 메인">
     <div class="cb-container">
@@ -158,6 +163,20 @@
       </div>
 
       <div class="cb-quote" id="cb-quote" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- [선택] 광고: 히어로 아래 인피드/반응형 -->
+  <section class="cb-ad" aria-label="스폰서 링크">
+    <div class="cb-container adwrap">
+      <!-- 본인 값으로 교체: data-ad-client, data-ad-slot -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="YYYYYYYYYY"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
   </section>
 
@@ -178,7 +197,6 @@
       <p class="cb-section__desc">초미(누나)와 비니(남동생)가 만드는 학습형 놀이터</p>
 
       <div class="cb-grid">
-        <!-- 카드 1: 사자성어 쪼개기 -->
         <article class="cb-card">
           <div class="cb-card__emoji" aria-hidden="true">🀄</div>
           <h3 class="cb-card__title">사자성어 쪼개기</h3>
@@ -187,7 +205,6 @@
           <div class="cb-tagwrap"><span class="cb-tag">퀴즈</span><span class="cb-tag">모바일최적화</span></div>
         </article>
 
-        <!-- 카드 2: 중학 영단어 쪼개기 -->
         <article class="cb-card">
           <div class="cb-card__emoji" aria-hidden="true">📚</div>
           <h3 class="cb-card__title">중학 영단어 쪼개기</h3>
@@ -196,7 +213,6 @@
           <div class="cb-tagwrap"><span class="cb-tag">어휘</span><span class="cb-tag">스토리학습</span></div>
         </article>
 
-        <!-- 카드 3: 고등 영단어 쪼개기 (예정) -->
         <article class="cb-card">
           <div class="cb-card__emoji" aria-hidden="true">📘</div>
           <h3 class="cb-card__title">고등 영단어 쪼개기 (예정)</h3>
@@ -205,7 +221,6 @@
           <div class="cb-tagwrap"><span class="cb-tag">고등</span><span class="cb-tag">예정</span></div>
         </article>
 
-        <!-- 카드 4: 삼국지 카드 배틀 (예정) -->
         <article class="cb-card">
           <div class="cb-card__emoji" aria-hidden="true">⚔️</div>
           <h3 class="cb-card__title">삼국지 카드 배틀 (예정)</h3>
@@ -214,7 +229,6 @@
           <div class="cb-tagwrap"><span class="cb-tag">게임</span><span class="cb-tag">예정</span></div>
         </article>
 
-        <!-- 카드 5: 한국사 퀴즈 (예정) -->
         <article class="cb-card">
           <div class="cb-card__emoji" aria-hidden="true">🏺</div>
           <h3 class="cb-card__title">한국사 퀴즈 (예정)</h3>
@@ -223,6 +237,19 @@
           <div class="cb-tagwrap"><span class="cb-tag">학습</span><span class="cb-tag">예정</span></div>
         </article>
       </div>
+    </div>
+  </section>
+
+  <!-- [선택] 광고: 프로젝트 섹션 하단 -->
+  <section class="cb-ad" aria-label="스폰서 링크">
+    <div class="cb-container adwrap">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="ZZZZZZZZZZ"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
   </section>
 
@@ -260,7 +287,7 @@
     </div>
   </section>
 
-  <!-- 스토리 (블로그 링크 제거, 내부 앵커) -->
+  <!-- 스토리 -->
   <section id="cb-story" class="cb-section cb-section--alt" aria-label="초미비니 스토리">
     <div class="cb-container">
       <h2 class="cb-section__title">초미비니 스토리</h2>
